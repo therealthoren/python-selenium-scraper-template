@@ -1,7 +1,12 @@
 # Python Selenium Scraper #TEMPLATE
 
 ### Medium Article is here:
-#### coming soon
+https://medium.com/@thoren.lederer/automate-your-web-scraping-with-docker-schedule-python-selenium-scripts-on-cron-and-watch-the-a15511701a75
+
+### Updates
+- 2024-05-13: Added Medium Article Link
+- 2024-05-14: Added Tor Proxy to the Dockerfile
+- 2024-05-15  Added ProtonVPN Proxy to the Dockerfile
 
 ## Description
 <i>Disclaimer: This repository can be cloned as a template repository and modified by your needs. It is only for educational purposes.</i>
@@ -66,6 +71,44 @@ logic = LogicController(notification=WebhookNotification("http://your-webhook-ur
 You can find the log files in the `/var/logs/cron/cron-scheduled.log` folder.
 
 ----
+
+
+## How to use the Tor Proxy
+Run the run_tor.sh file to use the Tor Proxy. 
+```commandline
+
+sh run_tor.sh
+
+```
+
+After that you can use the tor proxy in your scraper logic. Example is included.
+
+````python3
+
+    ### If you want to use tor proxy, uncomment the following lines
+    ff_options.set_preference('network.proxy.type', 1)
+    ff_options.set_preference('network.proxy.socks', "localhost")
+    ff_options.set_preference('network.proxy.socks_port', 9050)
+
+````
+
+## How to use the ProtonVPN Proxy
+
+If you want to use a VPN for your scraper you can use the ProtonVPN Proxy. You can crete a free account on ProtonVPN and use the free servers.
+
+Copy your ProtonVPN credentials from your account and run the run_protonvpn.sh file.
+
+<img src="assets/protonvpn.png" style="max-width: 500px">
+
+```commandline
+
+sh run_protonvpn.sh
+
+# When you are asked for the username and password, enter your ProtonVPN credentials
+
+# basic country code is: nl
+
+```
 
 Have fun with your scraper!
 

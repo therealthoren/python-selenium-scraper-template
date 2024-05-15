@@ -11,6 +11,11 @@ def run():
     ff_options.add_argument('--no-sandbox')
     ff_options.add_argument('--disable-dev-shm-usage')
 
+    ### If you want to use tor proxy, uncomment the following lines
+    # ff_options.set_preference('network.proxy.type', 1)
+    # ff_options.set_preference('network.proxy.socks', "localhost")
+    # ff_options.set_preference('network.proxy.socks_port', 9050)
+
     try:
         # DONT CHANGE THIS LINE
         driver = webdriver.Remote("http://localhost:4444/wd/hub", options=ff_options)
