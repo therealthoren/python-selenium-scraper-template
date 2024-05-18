@@ -31,6 +31,9 @@ RUN chmod 777 /var/log/cron/
 
 USER seluser
 
+COPY change_vpn.sh /opt/change_vpn.sh
+RUN sudo chmod +x /opt/change_vpn.sh
+
 COPY scheduler.sh /opt/scheduler.sh
 RUN sudo chmod +x /opt/scheduler.sh
 

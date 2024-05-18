@@ -7,6 +7,7 @@ https://medium.com/@thoren.lederer/automate-your-web-scraping-with-docker-schedu
 - 2024-05-13: Added Medium Article Link
 - 2024-05-14: Added Tor Proxy to the Dockerfile
 - 2024-05-15  Added ProtonVPN Proxy to the Dockerfile
+- 2024-05-16: Added VPN Gateway bypass for local networks
 
 ## Description
 <i>Disclaimer: This repository can be cloned as a template repository and modified by your needs. It is only for educational purposes.</i>
@@ -108,6 +109,17 @@ sh run_protonvpn.sh
 
 # basic country code is: nl
 
+```
+
+# How to bypass the VPN Gateway for local networks
+
+If you want to bypass local network traffic, uncomment the lines in the change_vpn.sh file.
+
+```commandline
+    # add ignore local traffic of example for kubernetes
+    # sudo bash -c "echo 'route 10.233.0.0 255.255.0.0 net_gateway' >> /etc/openvpn/client.conf"s
+    # and add dns resolver if needed
+    # dhcp-option DNS 10.233.0.3
 ```
 
 Have fun with your scraper!
